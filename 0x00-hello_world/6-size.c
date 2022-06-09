@@ -9,9 +9,13 @@
 int main(void)
 {
 	char a;
+
 	int b;
+
 	int long c;
+
 	int long long d;
+
 	float f;
 
 	printf("Size of a char: %zu bytes \n", sizeof(a));
