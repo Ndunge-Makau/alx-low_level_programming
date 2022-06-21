@@ -1,8 +1,10 @@
 #include <stdio.h>
-#include "main.h"
 
 /**
- * main - FizzBuzz
+ * main - Entry point
+ * fizz: if divisible by 3
+ * buzz: if divisible by 5
+ * fizzbuzz: if divisible by both 3 and 5
  * Description: prints the numbers from 1 to 100, FizzBuzz format
  * Return: 0
  */
