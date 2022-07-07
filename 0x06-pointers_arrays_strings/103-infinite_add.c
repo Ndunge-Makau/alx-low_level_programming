@@ -7,7 +7,7 @@
  * @r: The buffer to store the result.
  * @r_index: The current index of the buffer.
  * Return: If r can store the sum - a pointer to the result.
- * 	If r cannot store the sum - 0.
+ * If r cannot store the sum - 0.
  */
 
 char *add_strings(char *n1, char *n2, char *r, int r_index)
@@ -52,7 +52,7 @@ char *add_strings(char *n1, char *n2, char *r, int r_index)
  * @r: The buffer to store the result.
  * @size_r: The buffer size.
  * Return: If r can store the sum - a pointer to the result.
- *         If r cannot store the sum - 0
+ * If r cannot store the sum - 0
  */
 
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
