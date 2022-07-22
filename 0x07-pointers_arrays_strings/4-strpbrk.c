@@ -9,20 +9,29 @@
 
 char *_strpbrk(char *s, char *accept)
 {
-	int i, j, n = 0, x = 0;
+	unsigned int count;
+	char *reset = accept;
+	int tag;
 
-	while (s[n])
-		n++;
-	while (accept[x])
-		x++;
-	for (i = 0; i <= n; i++)
+	while (*s)
 	{
-		for (j = 0; j <= x; j++)
+		while (*accept)
 		{
-			if (s[i] == accept[j])
-				return (s + i);
+			if (*s == *accept)
+			{
+				count++;
+				tag = 1;
+				break;
+			}
+			accept++;
+		}
+		s++;
+		accept = reset;
+
+		if (tag == 1)
+		{
+			return (s - 1);
 		}
 	}
-	s = 0;
-	return (s);
+	return (NULL);
 }
