@@ -1,5 +1,5 @@
 #include "main.h"
-#include <stddef.h>
+
 /**
  * _strchr - Searched for the first occurrence of character
  * @s: String to be scanned
