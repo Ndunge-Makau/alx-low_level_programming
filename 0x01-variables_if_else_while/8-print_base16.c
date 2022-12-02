@@ -13,7 +13,7 @@ int main(void)
 
 	for (num = 0; num < 10; num++)
 	{
-		putchar((num % 10) + '0');
+		putchar(num + '0');
 	}
 	for (alph = 'a'; alph <= 'f'; alph++)
 	{
