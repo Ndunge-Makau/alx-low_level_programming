@@ -3,19 +3,22 @@
 /**
  * print_last_digit - prints the last digit of a number
  * Description: prints the last digit of a number
- * @r: integer to be checked
+ * @num: integer to be checked
  * Return: Value of last digit
  */
 
-int print_last_digit(int r)
+int print_last_digit(int num)
 {
-	int last_digit = r % 10;
+	int last_digit;
 
-	if (last_digit < 0)
+	if (num < 0)
 	{
-		last_digit *= -1;
+		last_digit = (num * -1) % 10;
 	}
-
+	else
+	{
+		last_digit = num % 10;
+	}
 	_putchar(last_digit + '0');
 	return (last_digit);
 }
