@@ -10,7 +10,7 @@
 
 int main(void)
 {
-	int first = 0, second = 1, count;
+	int first = 0, second = 1;
 	long sum = 0, new_sum = 0;
 
 	while (sum < 4000000)
