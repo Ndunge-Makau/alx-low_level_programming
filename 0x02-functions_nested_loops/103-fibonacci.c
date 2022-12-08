@@ -1,27 +1,29 @@
 #include <stdio.h>
 
 /**
- * main - Entry point
- * Description: finds and prints the sum of the even-valued terms
+ * main - Entry Point
+ * Descritpion: finds and prints the sum of the even-valued terms
+ * of the Fibonacci series by considering the terms in the Fibonacci sequence
+ * whose values do not exceed 4,000,000.
  * Return: 0
  */
 
 int main(void)
 {
-	unsigned long f1 = 0, f2 = 1, sum;
-	float ssum;
+	int first = 0, second = 1, count;
+	long sum = 0, new_sum = 0;
 
-	while (1)
+	while (sum < 4000000)
 	{
-		sum = f1 + f2;
-		if (sum > 4000000)
-			break;
+		sum = first + second;
+		first = second;
+		second = sum;
 
 		if (sum % 2 == 0)
-			ssum += sum;
-		f1 = f2;
-		f2 = sum;
+		{
+			new_sum += sum;
+		}
 	}
-	printf("%0.f\n", ssum);
+	printf("%lu\n", new_sum);
 	return (0);
 }
