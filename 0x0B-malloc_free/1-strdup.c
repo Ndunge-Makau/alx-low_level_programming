@@ -18,19 +18,20 @@ char *_strdup(char *str)
 		return (NULL);
 	}
 
-	while (*str++)
+	while (str[i])
 	{
 		count++;
+		i++;
 	}
 
-	new_string = malloc(sizeof(char) * (count + 1));
+	new_string = malloc(sizeof(char) * count);
 
 	if (new_string == NULL)
 	{
 		return (NULL);
 	}
 
-	for (i = 0; i < count; i++)
+	for (i = 0; str[i] ; i++)
 	{
 		new_string[i] = str[i];
 	}
