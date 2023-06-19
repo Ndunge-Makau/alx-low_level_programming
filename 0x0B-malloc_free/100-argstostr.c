@@ -40,8 +40,7 @@ char *argstostr(int ac, char **av)
 		{
 			new_string[k] = av[i][j];
 		}
-		new_string[k] = '\n';
-		k++;
+		new_string[k++] = '\n';
 	}
 	new_string[k] = '\0';
 	return (new_string);
