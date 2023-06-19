@@ -24,12 +24,13 @@ char *argstostr(int ac, char **av)
 		}
 		string_length++;
 	}
+	string_length++;
 	new_string = malloc(sizeof(char) * string_length);
 
 	if (new_string == NULL)
 	{
-		return (NULL);
 		free(new_string);
+		return (NULL);
 	}
 
 
