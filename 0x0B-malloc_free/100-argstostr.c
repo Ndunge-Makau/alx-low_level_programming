@@ -29,6 +29,7 @@ char *argstostr(int ac, char **av)
 	if (new_string == NULL)
 	{
 		return (NULL);
+		free(new_string);
 	}
 
 
