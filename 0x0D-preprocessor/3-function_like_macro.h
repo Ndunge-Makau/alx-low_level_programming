@@ -1,4 +1,7 @@
+#ifndef FUNCTION_LIKE_MACRO
+#define FUNCTION_LIKE_MACRO
+
 #include <stdlib.h>
-#ifndef ABS
-#define ABS(x)  abs(x)
+
+#define ABS(x) abs(x)
 #endif /* #ifndef ABS(x) */
