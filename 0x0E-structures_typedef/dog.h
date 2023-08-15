@@ -1,5 +1,5 @@
-#ifndef FILE_DOG
-#define FILE_DOG
+#ifndef _FILE_DOG_H
+#define _FILE_DOG_H
 
 /**
  * struct dog - Describes a dog.
