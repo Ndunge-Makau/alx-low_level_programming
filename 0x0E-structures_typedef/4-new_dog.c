@@ -20,6 +20,27 @@ int _strlen(char *s)
 }
 
 /**
+ * *_strcpy - copies the string pointed to by src,
+ * including the terminating null byte (\0),
+ * to the buffer pointed to by dest
+ *
+ * @dest: A buffer to copy the string to.
+ * @src: The source string to copy.
+ * Return: A pointer to the destination string @dest.
+ */
+
+char *_strcpy(char *dest, char *src)
+{
+	int i = -1;
+
+	do {
+		i++;
+		dest[i] = src[i];
+	} while (src[i] != '\0');
+	return (dest);
+}
+
+/**
  * *new_dog - creates new dog vairable
  * @name: name of dog
  * @age: age of dog
@@ -53,8 +74,8 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(New_dog->owner);
 		return (NULL);
 	}
-	New_dog->name = name;
+	New_dog->name = _strcpy(New_dog->name, name);
 	New_dog->age = age;
-	New_dog->owner = owner;
+	New_dog->owner = _strcpy(New_dog->owner, owner);
 	return (New_dog);
 }
