@@ -11,6 +11,7 @@ void print_all(const char * const format, ...)
 {
 	va_list ap;
 	int i = 0;
+	char *str;
 
 	if (!format)
 	{
@@ -19,7 +20,6 @@ void print_all(const char * const format, ...)
 	}
 
 	va_start(ap, format);
-
 	while (format[i])
 	{
 		switch (format[i])
@@ -34,9 +34,9 @@ void print_all(const char * const format, ...)
 				printf("%f", va_arg(ap, double));
 				break;
 			case 's':
-				printf("%s", va_arg(ap, char *));
-				break;
-			default:
+				str = va_arg(ap, char *);
+				str = str ? str : "(nil)";
+				printf("%s", str);
 				break;
 		}
 		if ((format[i] == 'c' ||
