@@ -36,6 +36,8 @@ void print_all(const char * const format, ...)
 			case 's':
 				printf("%s", va_arg(ap, char *));
 				break;
+			default:
+				break;
 		}
 		if ((format[i] == 'c' ||
 				       format[i] == 'i' ||
