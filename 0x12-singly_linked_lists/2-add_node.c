@@ -16,8 +16,26 @@ list_t *add_node(list_t **head, const char *str)
 	if (new_node == NULL)
 		return (NULL);
 	new_node->string = strdup(str);
-	new_node->len = strlen(strdup(str));
+	new_node->len = _strlen(strdup(str));
 	new_node->next = *head;
 	*head = new_node;
 	return (new_node);
+}
+
+/**
+ * _strlen - returns length of string
+ * @s: string
+ * Return: length of string
+ */
+
+int _strlen(char *s)
+{
+	int count = 0, i = 0;
+
+	while (s[i])
+	{
+		count++;
+		i++;
+	}
+	return (count);
 }
