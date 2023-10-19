@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stddef.h>
 #include <stdlib.h>
-#include<string.h>
+#include <string.h>
 
 /**
  * struct node - Describes node of a linked list.
@@ -15,7 +15,7 @@
 
 struct node
 {
-	char *string;
+	char *str;
 	int len;
 	struct node *next;
 };

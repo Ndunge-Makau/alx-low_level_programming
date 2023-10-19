@@ -9,19 +9,25 @@
 
 size_t print_list(const list_t *h)
 {
-	size_t num = 0;
+	size_t num = 0, length = 0;
 	int i = 0;
 	const list_t *temp = h;
 	char *my_string;
 
 	while (temp != NULL)
 	{
-		if (temp->string == NULL)
-			my_string = "[0] (nil)";
+		if (temp->str == NULL)
+		{
+			length = 0;
+			my_string = "(nil)";
+		}
 		else
-			my_string = temp->string;
+		{
+			length = temp->len;
+			my_string = temp->str;
+		}
 		_putchar('[');
-		_putchar('0' + temp->len);
+		_putchar('0' + length);
 		_putchar(']');
 		_putchar(' ');
 		while (my_string[i])
