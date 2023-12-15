@@ -28,4 +28,5 @@ int _strlen(char *s);
 int _putchar (char c);
 list_t *add_node_end(list_t **head, const char *str);
 void free_list(list_t *head);
+void before_main()__attribute__((constructor));
 #endif /* MAIN_H */
