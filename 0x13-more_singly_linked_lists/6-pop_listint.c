@@ -21,8 +21,5 @@ int pop_listint(listint_t **head)
 		*head = temp;
 		return (i);
 	}
-	else
-	{
-		return (0);
-	}
+	return (0);
 }
