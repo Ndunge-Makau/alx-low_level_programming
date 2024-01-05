@@ -1,37 +1,84 @@
 #include "main.h"
 
 /**
- * binary_to_uint - converts a binary number to an
- * unsigned int.
- * @b: binary.
- *
- * Return: unsigned int.
+ * binary_to_uint - Converts a binary number to an unsigned int.
+ * @b: string of binary number
+ * Return: Converted number, 0 if there is one or more chars
+ *	in the string b that is not 0 or 1 or if b is NULL
  */
+
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int ui;
-	int len, base_two;
+	unsigned int num = 0, len = 0;
+	int i;
 
-	if (!b)
-		return (0);
+	len = _strlen(b);
 
-	ui = 0;
-
-	for (len = 0; b[len] != '\0'; len++)
-		;
-
-	for (len--, base_two = 1; len >= 0; len--, base_two *= 2)
+	if (b == NULL)
 	{
-		if (b[len] != '0' && b[len] != '1')
+		return (0);
+	}
+
+	for (i = 0; i < _strlen(b); i++)
+	{
+		if (b[i] == '1')
+		{
+			num += _power(2, (len - 1));
+			len -= 1;
+		}
+		else if (b[i] == '0')
+		{
+			len -= 1;
+		}
+		else
 		{
 			return (0);
 		}
 
-		if (b[len] & 1)
-		{
-			ui += base_two;
-		}
 	}
-
-	return (ui);
+	return (num);
 }
+
+/**
+ * _strlen - returns the length of a string
+ * @s: string to be checked
+ * Return: length of string
+ */
+
+int _strlen(const char *s)
+{
+	int count = 0, i = 0;
+
+	while (s[i])
+	{
+		count++;
+		i++;
+	}
+	return (count);
+}
+
+/**
+ * _power - returns the value of x raised to the power of y
+ * @x: Value
+ * @y: power value
+ * Return: value of x raised to the power of y
+ */
+
+int _power(int x, int y)
+{
+	if (y < 0)
+	{
+		return (-1);
+	}
+	else if (y == 1)
+	{
+		return (x);
+	}
+	else if (y == 0)
+	{
+		return (1);
+	}
+	else
+		return (x * _power(x, y - 1));
+}
+
