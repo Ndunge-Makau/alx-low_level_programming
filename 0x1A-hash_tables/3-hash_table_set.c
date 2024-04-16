@@ -12,7 +12,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	hash_node_t *new_node, *current_node;
 	LinkedList *list = NULL, *temp = NULL;
-	unsigned long hash, size = 1024;
+	unsigned long hash;
 
 	new_node = malloc(sizeof(hash_node_t));
 	if (new_node == NULL)
@@ -23,7 +23,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	new_node->key = strdup(key);
 	new_node->value = strdup(value);
 
-	hash = key_index((unsigned char *)(key), size);
+	hash = key_index((unsigned char *)(key), 1024);
 
 	current_node = ht->array[hash];
 	if (current_node == NULL)
