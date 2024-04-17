@@ -11,7 +11,6 @@
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	hash_node_t *new_node, *current_node;
-	LinkedList *list = NULL, *temp = NULL;
 	unsigned long hash;
 
 	new_node = malloc(sizeof(hash_node_t));
@@ -22,9 +21,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	}
 	new_node->key = strdup(key);
 	new_node->value = strdup(value);
-
-	hash = key_index((unsigned char *)(key), ht->size);
-
+	new_node->next = NULL;
+	hash = key_index((unsigned char *)key, ht->size);
 	current_node = ht->array[hash];
 	if (current_node == NULL)
 	{
@@ -40,25 +38,25 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		}
 		else
 		{
-			list->head = ht->array[hash];
-			if (list == NULL)
-			{
-				list = malloc(sizeof(LinkedList));
-				list->head = new_node;
-				list->next = NULL;
-				ht->array[hash] = new_node;
-			}
-			else
-			{
-				temp = list;
-				temp->head = new_node;
-				temp->next = list;
-				list = temp;
-				ht->array[hash] = new_node;
-			}
+			handle_collision(ht, hash, new_node);
 			return (1);
 		}
-
 	}
+}
+
+/**
+ * handle_collision - Handle collisions in a hash table
+ * @ht: Hash table
+ * @hash: Index of node in array
+ * @node: Node to be inserted
+ * Return: Nothing
+ */
+void handle_collision(hash_table_t *ht, unsigned long hash, hash_node_t *node)
+{
+	hash_node_t *current_node;
+
+	current_node = ht->array[hash];
+	node->next = current_node;
+	ht->array[hash] = node;
 }
 
