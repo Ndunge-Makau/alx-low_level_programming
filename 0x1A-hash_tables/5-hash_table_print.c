@@ -20,8 +20,6 @@ void hash_table_print(const hash_table_t *ht)
 		node = ht->array[i];
 		if (node == NULL)
 			continue;
-		if (!comma_flag)
-			printf(", ");
 		while (node)
 		{
 			if (!comma_flag)
@@ -32,6 +30,7 @@ void hash_table_print(const hash_table_t *ht)
 			node = node->next;
 		}
 		node = NULL;
+		comma_flag = 0;
 	}
 	printf("}\n");
 }
