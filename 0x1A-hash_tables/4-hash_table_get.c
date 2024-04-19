@@ -22,7 +22,6 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 
 	if (node == NULL)
 	{
-		free(node);
 		return (NULL);
 	}
 	if (node->next == NULL)
