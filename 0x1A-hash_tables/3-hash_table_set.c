@@ -14,18 +14,11 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long hash;
 
 	if (ht == NULL)
-	{
 		return (0);
-	}
 
-	new_node = malloc(sizeof(hash_node_t));
+	new_node = create_node(key, value);
 	if (new_node == NULL)
-	{
-		free(new_node);
 		return (0);
-	}
-	new_node->key = strdup(key);
-	new_node->value = strdup(value);
 	new_node->next = NULL;
 	hash = key_index((unsigned char *)key, ht->size);
 	current_node = ht->array[hash];
@@ -63,5 +56,39 @@ void handle_collision(hash_table_t *ht, unsigned long hash, hash_node_t *node)
 	current_node = ht->array[hash];
 	node->next = current_node;
 	ht->array[hash] = node;
+}
+
+
+/**
+ * create_node - Allocates memory for a node
+ * @key: Key
+ * @value: value
+ * Return: Pointer to node
+ */
+
+hash_node_t *create_node(const char *key, const char *value)
+{
+	hash_node_t *new_node;
+
+	new_node = malloc(sizeof(hash_node_t));
+	if (new_node == NULL)
+	{
+		free(new_node);
+		return (NULL);
+	}
+	new_node->key = strdup(key);
+	if (!new_node->key)
+	{
+		free(new_node);
+		return (NULL);
+	}
+	new_node->value = strdup(value);
+	if (!new_node->value)
+	{
+		free(new_node->key);
+		free(new_node);
+		return (NULL);
+	}
+	return (new_node);
 }
 
